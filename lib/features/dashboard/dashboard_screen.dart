@@ -1,15 +1,19 @@
 import 'package:flutter/material.dart';
 
+import '../../core/localization/generated/app_localizations.dart';
+
 class DashboardScreen extends StatelessWidget {
   const DashboardScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
+
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
-          'Học Tốt',
-          style: TextStyle(fontWeight: FontWeight.bold),
+        title: Text(
+          l10n.appTitle,
+          style: const TextStyle(fontWeight: FontWeight.bold),
         ),
       ),
       body: Center(
@@ -33,15 +37,14 @@ class DashboardScreen extends StatelessWidget {
               ),
               const SizedBox(height: 24),
               Text(
-                'Chào mừng đến với Học Tốt!',
+                l10n.welcomeTitle,
                 textAlign: TextAlign.center,
                 style: Theme.of(context).textTheme.headlineSmall
                     ?.copyWith(fontWeight: FontWeight.bold),
               ),
               const SizedBox(height: 12),
               Text(
-                'Ứng dụng hỗ trợ lập kế hoạch và '
-                'quản lý việc học tập của bạn.',
+                l10n.welcomeDescription,
                 textAlign: TextAlign.center,
                 style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                   color: Theme.of(context).colorScheme.onSurfaceVariant,
