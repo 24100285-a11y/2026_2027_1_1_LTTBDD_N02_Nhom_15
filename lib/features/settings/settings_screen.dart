@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../app/app_settings_controller.dart';
 import '../../data/models/app_settings.dart';
+import 'about_screen.dart';
 import 'notification_settings_screen.dart';
 
 class SettingsScreen extends StatelessWidget {
@@ -27,11 +28,8 @@ class SettingsScreen extends StatelessWidget {
       body: ListView(
         padding: const EdgeInsets.all(20),
         children: [
-          // LANGUAGE SETTINGS
           _buildSectionTitle(context, _text(context, 'Ngôn ngữ', 'Language')),
-
           const SizedBox(height: 12),
-
           Card(
             elevation: 0,
             color: theme.colorScheme.surfaceContainerLow,
@@ -88,14 +86,11 @@ class SettingsScreen extends StatelessWidget {
 
           const SizedBox(height: 28),
 
-          // NOTIFICATION SETTINGS
           _buildSectionTitle(
             context,
             _text(context, 'Thông báo', 'Notifications'),
           ),
-
           const SizedBox(height: 12),
-
           Card(
             elevation: 0,
             color: theme.colorScheme.surfaceContainerLow,
@@ -141,14 +136,11 @@ class SettingsScreen extends StatelessWidget {
 
           const SizedBox(height: 28),
 
-          // APP INFORMATION
           _buildSectionTitle(
             context,
             _text(context, 'Thông tin ứng dụng', 'About application'),
           ),
-
           const SizedBox(height: 12),
-
           Card(
             elevation: 0,
             color: theme.colorScheme.surfaceContainerLow,
@@ -183,6 +175,30 @@ class SettingsScreen extends StatelessWidget {
                       'Local SQLite database',
                     ),
                   ),
+                ),
+                const Divider(height: 1, indent: 16, endIndent: 16),
+                ListTile(
+                  leading: const Icon(Icons.description_outlined),
+                  title: Text(
+                    _text(context, 'Thông tin dự án', 'Project information'),
+                    style: const TextStyle(fontWeight: FontWeight.w600),
+                  ),
+                  subtitle: Text(
+                    _text(
+                      context,
+                      'Giới thiệu ứng dụng, chức năng và công nghệ',
+                      'Application overview, features and technologies',
+                    ),
+                  ),
+                  trailing: const Icon(Icons.chevron_right_rounded),
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const AboutScreen(),
+                      ),
+                    );
+                  },
                 ),
               ],
             ),
